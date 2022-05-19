@@ -24,9 +24,9 @@ if __name__ == '__main__':
     #Testcase = "./peng/test_login.py::类名::方法名"#指定目录中的文件中的类里面的方法
     #args = ["-s", "-v", "--alluredir",resultDir, "-k","denglu",FilePath.casePath()+Testcase]    #指定运行目录中文件名/类名/方法名包含关键字的用例
     args = ["-s","-v","--alluredir",resultDir,"--clean-alluredir",FilePath.casePath()+Testcase]#测试范围目录下的用例生成结果数据
-    logger.info("pytest 开始执行用例");
+    logger.info("pytest 开始执行用例")
     pytest.main(args) #运行输出并在report目录下生成json结果文件
-    logger.info("pytest 用例执行结束"+"\r\n");
+    logger.info("pytest 用例执行结束"+"\r\n")
     import subprocess #通过标准库中的subprocess包来fork一个子进程，并进行一个外部的程序
     subprocess.call('allure generate '+resultDir+' -o '+reportDir+' --clean',shell=True)#读取json文件并生成html报告，
                          # --clean若目录存在则先清除
